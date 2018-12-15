@@ -1,4 +1,4 @@
-function dz = pendulum_dyn(t,z,u)
+function dz = dyn_pendulum(t,z,u)
 %PENDULUM_DYN describes the discrete time dynamics of a pendulum
 %   Detailed explanation goes here
 m = 1; % kg
