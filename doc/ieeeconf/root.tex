@@ -223,15 +223,75 @@ This shows that PILCO can handle unkown nonlinear systems quite effectively. Thi
 %In this work a radial basis function (RBF) controller is used.
 %+Results+
 
-\section{MODEL-FREE RL}
-+Maybe a few sentences about the general idea/concept of model-free RL+
+\section{MODEL-FREE POLICY SEARCH}
+\begin{figure*}[!thp] 
+	\centering
+	\begin{subfigure}{0.325\textwidth}
+	\includegraphics[width=\textwidth]{julia_sdm_quad.png}
+	\caption{Spring Damper Mass \newline}\label{fig:PoWER_sdm}
+	\end{subfigure}
+	\begin{subfigure}{0.325\textwidth}
+	\includegraphics[width=\textwidth]{julia_pend_quad.png}
+	\caption{Pendulum \newline}\label{fig:PoWER_pendulum}
+	\end{subfigure}
+	\begin{subfigure}{0.325\textwidth}
+	\includegraphics[width=\textwidth]{julia_cp10_quad.png}
+	\caption{Cart pole, initial angle: 10\textdegree}\label{fig:PoWER_cp}
+	\end{subfigure}\caption{Figures (a)-(c) show the improvement process while }\label{fig:PoWER}
+\end{figure*} 
+This section shows an approach of a model-free policy search using Policy learning by Weighting Exploration with Returns (PoWER).
 \subsection{Algorithm}
+The PoWER-algorithm is based on applying varying policies to the unknown system and optimizing these policies according to their rewards.
+The policy $\pi_\theta$ applied on the system in this work is based on Dynamic Movement Primitives (DMP)
+\begin{equation}
+\pi_{\theta}=\ddot{y}=\tau^{2}\alpha_y\beta_y(g-y(t)-\tau^{2}\alpha_y \dot{y}(t)+\tau^{2}f(z(t))
+\end{equation}
+with parameters $\tau,\alpha_y, \beta_y>0$.
+The function $f$ is represented by a radial basis function (RBF) network 
+\begin{equation}
+f(z(t))=\frac{\sum_{i=1}^N \phi_i \omega_i}{\sum_{i=1}^N \phi_i}z 
+\end{equation}
+where $\omega_i$ corresponds to the weights of the RBFs $\phi_i$. Usually five to twenty radial basis functions $\phi_i$ per system's degree of freedom (DoF) are used. The variable $z(t)$ is a system state resulting from the dynamics 
+\begin{equation}
+\dot{z}=-\tau\,\alpha_z \,z 
+\end{equation}
+with $\alpha_z>0$.
+To optimize the policy $\pi_\theta$, the policy parameter vector $\theta$ (containing weights $\omega_i$ of RBF $\phi_i$) are explored in parameter space with adding a gaussian noise $\varepsilon \sim N(0,\sigma_{\varepsilon})$ to the parameters in iteration $n$:
+\begin{equation}
+\theta_{temp}=\theta_n+\varepsilon
+\end{equation}
+The policy obtained by temporary parameters $\theta_{temp}$ are rolled out on the system and the system trajectory $x_t$ is measured. A cumulative reward $R$ assesses the quality of the rollout using the trajectory $x_t$: %for different $\theta_{temp}$: 
+%$x_t$ represent the system's target states and $r_t$ is based on a squared exponential function.
+%$r_t=e^{-\alpha_1(x_1-x{t,1})^{2}-...}$
+\begin{equation}
+R(\theta_{temp})=\sum_{t=0}^{T-1} r_t(x_t) 
+\end{equation}
+The reward $r_t$ at time $t$ is calculated using a squared exponential function. The procedure of applying different policies using different parameters $\theta_{temp}$, which are obtained by the gaussian noise added to the base parameter $\theta_n$, is repeated $k$ times at each iteration $n$. The parameter update for the next iteration $n+1$ is then done by ordering the temporary parameters $\theta_{temp}$ by their rewards $R(\theta_{temp})$ from the best to the worst. The update law is then
+\begin{equation}
+\theta_{n+1}=\theta_n+\frac{\Delta\theta_1 R(\theta_1)+...+\Delta\theta_{10} R(\theta_{10})}{R(\theta_1)+...+R(\theta_{10})}
+\end{equation}
+with $\Delta\theta_k=\theta_{temp,k}-\theta_n$, $k=1,2,...,10$. 
+%In other words only the best ten rollouts are taken into account:
+The mentioned steps are repeated until the reward $R(\theta_n)$ is greater than a threshold close to 1 or a maximum number of iterations is reached.
 
-+Algorithm+
+
+%used for the different rollouts 
+%Having initialized the weighting parameters $\theta_{temp},\theta_n=0$,
+%a white gaussian noise is added in the beginning of the rollout: 
+%$\theta_{temp}=\theta_n+\varepsilon$ with $\varepsilon \sim N(0,\sigma_{\varepsilon})$. $\theta_{temp}$ is used to weight the RBFs $\phi_i(z)=e^{-\frac{1}{2\sigma_i^{2}}(z-\mu_i)^{2}}$ while training period. While $\mu$ indicates the expected value and thus the position of the distribution's maximum, $\sigma$ is the standard deviation.     
+
+%$=\theta_{temp}$ and  ($\alpha_z>0$), $f(z(t))$ has to be optimized.
+%
+%Applying the policy on the system, the result is the time behaviour of the rollout. 
 
 \subsection{Results}
+In the following the results of the three systemss mass-spring-damper, pendulum and cart-pole are shown.\\\\
+\textit{Mass-spring-damper:}
+\\
+\\
+\textit{Pendulum:}\\
+\textit{Cart-Pole:}\\
 
-+Results+
 
 \section{OPTIMAL CONTROL}
 The overarching concept in optimal control is to optimize control inputs and system states according to a specific cost function. 
