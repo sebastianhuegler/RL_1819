@@ -64,7 +64,7 @@ useful solutions for this class of systems. Therefore, the aim of this paper is 
 
 The algorithms and results for the three approaches are presented in Sec. II, Sec. III, and Sec. IV, while a discussion of the findings is provided in Sec. V and a summarizing conclusion is drawn in Sec. VI.
 
-\section{MODELS}
+\section{SYSTEMS}
 The following three models are controlled by the three different control algorithms:
 \subsection{Spring Damper Mass}
 The spring-mass system can be described by a system of differential equations
@@ -227,17 +227,17 @@ This shows that PILCO can handle unkown nonlinear systems quite effectively. Thi
 \begin{figure*}[!thp] 
 	\centering
 	\begin{subfigure}{0.325\textwidth}
-	\includegraphics[width=\textwidth]{julia_sdm_quad.png}
-	\caption{Spring Damper Mass \newline}\label{fig:PoWER_sdm}
+	\includegraphics[width=\textwidth]{julia_sdm_quad_with_2000trails.png}
+	\caption{Mass-Spring-Damper \newline}\label{fig:PoWER_sdm}
 	\end{subfigure}
 	\begin{subfigure}{0.325\textwidth}
-	\includegraphics[width=\textwidth]{julia_pend_quad.png}
+	\includegraphics[width=\textwidth]{julia_pend_quad_with_2000trails.png}
 	\caption{Pendulum \newline}\label{fig:PoWER_pendulum}
 	\end{subfigure}
 	\begin{subfigure}{0.325\textwidth}
-	\includegraphics[width=\textwidth]{julia_cp10_quad.png}
-	\caption{Cart pole, initial angle: 10\textdegree}\label{fig:PoWER_cp}
-	\end{subfigure}\caption{Figures (a)-(c) show the improvement process while }\label{fig:PoWER}
+	\includegraphics[width=\textwidth]{julia_cp10_quad_with_2000trails.png}
+	\caption{Cartpole, initial angle: 10\textdegree}\label{fig:PoWER_cp}
+	\end{subfigure}\caption{Figures (a)-(c) show the system output as well as the policy over the time at different iteration steps (300 - 5000 trails).}\label{fig:PoWER}
 \end{figure*} 
 This section shows an approach of a model-free policy search using Policy learning by Weighting Exploration with Returns (PoWER).
 \subsection{Algorithm}
@@ -285,12 +285,7 @@ The mentioned steps are repeated until the reward $R(\theta_n)$ is greater than 
 %Applying the policy on the system, the result is the time behaviour of the rollout. 
 
 \subsection{Results}
-In the following the results of the three systemss mass-spring-damper, pendulum and cart-pole are shown.\\\\
-\textit{Mass-spring-damper:}
-\\
-\\
-\textit{Pendulum:}\\
-\textit{Cart-Pole:}\\
+In the following the results of the three systems mass-spring-damper, pendulum and cartpole are shown. For each system it takes around 3.000 trials to reach the target positions with a sufficient quality (see figure \ref{fig:PoWER}). At first the three reward curves of the systems show a fast improvement. After about 500 trials the rewards of the mass-spring-damper and the pendulum show a moderated linear improvement; the reward of the cartpole has its significant point at about 1.500 trials. The appearance of the three graphs differ: While the reward of the mass-spring-damper system shows comparatively little scattering and a maximum of about 0.75 (out of 1), the rewards of the two other systems have larger variations and lower maxima. This is due to the fact that leaving a point with higer rewards, entails a higher penalty in these two systems. Because the policy decreases with $z$, it is difficult for the alorithm to hold the target position in the end of the rollout horizon.
 
 
 \section{OPTIMAL CONTROL}
