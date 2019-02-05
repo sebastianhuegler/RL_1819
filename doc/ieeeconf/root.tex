@@ -51,7 +51,7 @@ Comparison of Model-Based and Model-Free Reinforcement Learning and Optimal Cont
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{abstract}
 
-The control of dynamical systems can be achieved by a variety of approaches with different advantages and drawbacks. In this paper, implementations of model-based reinforcement learning (RL), model-free RL, and optimal control for linear and non-linear dynamical systems are compared and discussed. The results show +one sentence about what results show+
+The control of dynamical systems can be achieved by a variety of approaches with different advantages and drawbacks. In this paper, implementations of model-based reinforcement learning (RL), model-free RL, and optimal control for linear and non-linear dynamical systems are compared and discussed.
 
 \end{abstract}
 
@@ -60,16 +60,13 @@ The control of dynamical systems can be achieved by a variety of approaches with
 \section{INTRODUCTION}
 
 The increase of computational power in recent years has allowed for the successful implementation of learning algorithms to control a wide range of dynamical systems. Nonetheless, classical approaches to control problems also provide 
-useful solutions for this class of systems. Therefore, the aim of this paper is to present and discuss algorithms and results, as well as advantages and drawbacks of different control approaches, namely model-based reinforcement learning (RL), model-free RL, and optimal control. These methods are applied to a spring-mass system, a pendulum, and a cart-pole system.
-
-The algorithms and results for the three approaches are presented in Sec. II, Sec. III, and Sec. IV, while a discussion of the findings is provided in Sec. V and a summarizing conclusion is drawn in Sec. VI.
-
+useful solutions for this class of systems. Therefore, the aim of this paper is to present and discuss advantages and drawbacks of the algorithms model-based reinforcement learning (RL), model-free RL, and optimal control. These methods are applied to a spring-mass system, a pendulum, and a cart-pole.
 \section{SYSTEMS}
-The following three models are controlled by the three different control algorithms:
-\subsection{Spring Damper Mass}
+This section shows the three models that will be controlled by the different algorithms:
+\subsection{Spring-Mass}
 The spring-mass system can be described by a system of differential equations
 \begin{equation}\label{eqn:JanSMsys}
-	\ddot{x}=
+	\dot{x}=
 	\underbrace{
 		\left( {\begin{array}{cc}
 			0 &1\\
@@ -79,13 +76,7 @@ The spring-mass system can be described by a system of differential equations
 		0\\
 		\frac{1}{m}\end{array} } \right)}_{B}u,
 \end{equation}
-with the parameters $k=1$\,N/m (spring) and $m=1$\,kg (mass),
-while the output of the system is given as
-\begin{equation}\label{eqn:JanSMoutput}
-	y=
-	\underbrace{
-		(1\quad 0)}_{C}x.
-\end{equation}
+with the parameters $k=1$\,N/m (spring) and $m=1$\,kg (mass).
 \subsection{Pendulum}
 The dynamics of the pendulum are described in (\ref{eqn:JanPsys}).
 \begin{equation}\label{eqn:JanPsys}
@@ -108,7 +99,9 @@ The cart-pole dynamics are as follows:
 with the parameters $m=0.2$\,kg (mass of pendulum),  $M=1$\,kg (mass of cart), $l=0.5$\,m (length of the pole), $g=9.82$\,m/s$^2$ (gravity), $c=0.2$\,sN/m (friction), and where s$_3$ and c$_3$ stand for sin$(x_3)$ and cos$(x_3)$, respectively.
 
 \subsection{Simulations}
-For the comparison of the following algorithms the simulation horizon for all models is 2.5 seconds and the maximum executable force for the spring damper mass and cart pole is 10 N and the maximum torque for the pendulum is 10 Nm. The initial state of spring damper mass (pendulum) is 0 m (0\textdegree) and 0 $\frac{m}{s}$ (0$\frac{rad}{s}$). The cart pole starts at the initial angles 10\textdegree , 90\textdegree and 180\textdegree and zero position of the cart. 
+For the comparison of the following algorithms the simulation horizon for all models is 2.5 s, the maximum executable force for the spring-mass and cart pole is 10 N, and the maximum torque for the pendulum is 10 Nm. The initial state of spring-mass (pendulum) is 0 m (0\textdegree) and 0 $\frac{m}{s}$ (0$\frac{rad}{s}$). The cart pole starts at the initial angles 10\textdegree, 90\textdegree, or 180\textdegree, and zero position of the cart. 
+
+The goals are $\underline{x}=(1.5\quad 0)^T$ for the spring-mass and upright positions for the pendulum and cart pole.
 %(For comparison the control energy is obtained by cumulative squared control input and the cost of the trajectory is the cumulative square of state variables.)
 
 \section{MODEL-BASED RL}
@@ -289,11 +282,26 @@ In the following the results of the three systems mass-spring-damper, pendulum a
 
 
 \section{OPTIMAL CONTROL}
+\begin{figure*}[!thp] 
+	\centering
+	\begin{subfigure}{0.325\textwidth}
+		\includegraphics[width=\textwidth]{MS.png}
+		\caption{Comparison of LQR and LQR+PI. Position $x_1$ of the spring-mass system (top) and control input $u$ (bottom).}\label{fig:JanSM}
+	\end{subfigure}
+	\begin{subfigure}{0.325\textwidth}
+		\includegraphics[width=\textwidth]{P1.png}
+		\caption{Comparison of iLQR result and closed-loop simulation. Angular position $x_1$ of the pendulum (top) and control input $u$ (bottom).}\label{fig:JanP1}
+	\end{subfigure}
+	\begin{subfigure}{0.325\textwidth}
+		\includegraphics[width=\textwidth]{CP.png}
+		\caption{MPC of the cart-pole. Angle $\theta=x_3$ of the pendulum and position $x=x_1$ of the car (top) and control input $u$ (bottom).}\label{fig:JanCP}
+	\end{subfigure}\caption{Plots (a) - (b) show the state trajectories for the three systems. Mass-spring (a), Pendulum (b), Cart pole (c).}\label{fig:PILCO}
+\end{figure*} 
 The overarching concept in optimal control is to optimize control inputs and system states according to a specific cost function. 
 
-For linear systems, the method of choice is a linear-quadratic regulator (LQR) that optimizes a linear-quadratic (LQ) cost function. When dealing with non-linear systems, LQR can be iteratively applied to locally LQ problems. This method is called iterative LQR (iLQR). Another method to handle non-linear systems is model-predictive control (MPC). In MPC, an optimization problem to obtain optimal inputs and state trajectories is only solved for a finite time horizon and continually updated during runtime.
+%For linear systems, the method of choice is a linear-quadratic regulator (LQR) that optimizes a linear-quadratic (LQ) cost function. When dealing with non-linear systems, LQR can be iteratively applied to locally LQ problems. This method is called iterative LQR (iLQR). Another method to handle non-linear systems is model-predictive control (MPC). In MPC, an optimization problem to obtain optimal inputs and state trajectories is only solved for a finite time horizon and continually updated during runtime.
 
-For this section, LQR was applied to the linear spring-mass system, iLQR to the pendulum, and MPC to the cart-pole system to highlight the different capabilities of these approaches.
+Since there are many different forms of optimal control, in this section, LQR was applied to the linear spring-mass system, iLQR to the pendulum, and MPC to the cart-pole system. This highlights the different capabilities of these approaches.
 \subsection{Algorithms}
 
 
@@ -303,23 +311,23 @@ The continuous LQR aims at minimizing the cost function depicted in (\ref{eqn:Ja
 \end{equation}
 with weight matrices $Q$ and $R$.
 Since there was no specifications for input and states, the weights were simply set to $Q=$ diag$(1,1)$ and $R=0.1$. 
-This results in an optimal input $u=-K\,x$ which transforms (1) into
+This results in the well known control law $u=-K\,x$ which transforms (1) into
 \begin{equation}\label{eqn:JanSMcontrolledSys}
 	\dot{x} = (A-B\,K)x.
 \end{equation}
-For the spring-mass system, $K$ was computed using the Matlab function ``lqr''.
+$K$ is the optimal state feedback gain.
 
-Since the goal position is not the origin but rather $x=(1.5 ~ 0)^T$, a prefilter matrix $L$ as shown in (\ref{eqn:JanSMprefilter}) is necessary.
+With a goal position different from the origin, a prefilter matrix $L$ as shown in (\ref{eqn:JanSMprefilter}) is necessary.
 \begin{equation}\label{eqn:JanSMprefilter}
 L = \left(C(B\,K-A)^{-1}B\right)^{-1}
 \end{equation}
 Since LQR is lacking an integral component, a simple PI controller ($K_P=K_I=1$) was added to drive the system into the desired goal position even under disturbances. Note that the system would also be stable for any other controller gain but experience higher overshooting.\\
 
-The iLQR approach for the pendulum was based on [+add reference for Tassa, Mansard and Todorov, 'Control-Limited Differential Dynamic Programming', ICRA 2014+] and their ``iLQG/DDP trajectory optimization'' toolbox for Matlab. 
+The iLQR approach for the pendulum was based on \cite{Opti_iLQR} and their Matlab toolbox. 
 
- To make the problem more interesting, the input is limited to $|u|<4$\,Nm, so that the goal cannot be achieved in a single swing but only by moving back and forth. 
+%iLQR (or the similar iLQG) algorithm is a shooting method. An input trajectory is applied to the system (forward pass), and subsequently optimized (backwards pass). This process is repeated iteratively, until the trajectory converges.
 
-The iLQR (or the similar iLQG) algorithm is a shooting method. This means that an input trajectory is applied to the system (forward pass), and then the input trajectory is optimized (backwards pass). This process is repeated iteratively, until the input trajectory converges.
+The input was limited to $|u|<4$\,Nm, so that the goal can only be reached by swinging back and forth. 
 
 The cost function for the pendulum problem is defined as 
 \begin{equation}\label{eqn:JanPcostfunc}
@@ -327,20 +335,14 @@ J_2 = \frac{1}{2}\overline{x}_N^{T}P\,\overline{x}_N + \frac{1}{2}\sum_{k=0}^{N-
 \end{equation}
 with the time horizon $N$, the deviation of the current state from the desired state $\overline{x}_k=(x_k-x_{des})$, the final weight matrix $P$, and the familiar $Q$ and $R$ matrices. 
 
-Without any other specifications, the input weight was set to a rather low value of $R=10^{-3}$. 
-
-Even though the desired state is the upright position of the pendulum at zero speed, during the run, only a modest punishment is placed on the correctness of the position to leave enough room for swinging back and forth, and the speed is not punished at all since it is required to drive the pendulum in the desired position. Therefore, this matrix was set to $Q=$ diag$(10^{-3},0)$.
-
-For the final state, the position is the most important factor, while the speed should at least be close to zero, which leads to $P=$ diag$(100,0.1)$.
+Without any other specifications, the input weight was set to a rather low value of $R=10^{-3}$ and $Q=$ diag$(10^{-3},0)$ to allow for necessary swinging and full speed during the run. The final cost was set to $P=$ diag$(100,0.1)$ to ensure the upright position.
 
 The iLQR algorithm was set to a time horizon of $N=5000$ at a $t=1$\,ms sample time, which equals a runtime of 5 seconds.
 
 iLQR is an open-loop controller. Therefore, in the implementation, the resulting input trajectory $\underline{u}$ from the optimization was used as feed forward control, while a PID controller minimized the difference between the estimated trajectory $\underline{x}$ (from the optimization) and the actual state.
 Without this setup, even the slightest perturbation of the system (e.g. rounding errors) leads to a failed upswing since the goal position is an unstable equilibrium point.\\
 
- 
-
-The MPC implementation was based on the ``nmpc'' function from [+cite Nonlinear Model Predictive Control Theory and Algorithms, Grüne, Lars, Pannek, Jürgen +]. This function aggregates system dynamics, constraints, cost function, and optimization parameters to solve the optimization problem with the Matlab function ``fmincon''.
+The MPC implementation was based on \cite{Opti_MPC}. Here, the Matlab function ``fmincon'' is used to solve the optimization.
 
 The input was constrained to $|u|<5$\,N, and the cart position was limited to $|x_1|<4$\,m. The cost function is the same as in (\ref{eqn:JanPcostfunc}), with $P=$ diag$(0,10,10,10)$ (end position of the cart is irrelevant as long as it stays within the bounds), $Q=$ diag$(20,10,10,0)$ (cart should remain in the center during upswing, while angular speed is irrelevant), and $R=0.01$. 
 
@@ -349,41 +351,40 @@ The prediction horizon was set to $N=20$ at a sample time of $t=20$\,ms, and the
 Since MPC is a closed-loop control strategy, no additional controller was necessary.
 \subsection{Results}
 
-For the spring-mass system without disturbances, the goal was reach by the LQR controller with $K=$. However, with an added constant disturbance of $d=0.5$\,N, the LQR controller alone fails to reach the desired position, while the addition of the PI controller solves this issue as shown in figure (\ref{fig:JanSM}).
-\begin{figure}[htp] 
-	\centering
-	\includegraphics[width=0.5\textwidth]{MS.png}
-	\caption{Comparison of LQR and LQR+PI controller. Position $x_1$ of the spring-mass system (top) and control input $u$ (bottom).}
-	\label{fig:JanSM}
-\end{figure} 
 
-Note that only using the PI controller is not sufficient and would cause the system to become unstable.\\
+For the spring-mass system without disturbances, the goal was reach by the LQR controller. However, with an added constant disturbance of $d=0.5$\,N, the PI controller was necessary as shown in figure (\ref{fig:JanSM}). Note that using the PI controller instead of LQR would cause the system to become unstable.\\
+%\begin{figure}[htp] 
+%	\centering
+%	\includegraphics[width=0.5\textwidth]{MS.png}
+%	\caption{Comparison of LQR and LQR+PI controller. Position $x_1$ of the spring-mass system (top) and control input $u$ (bottom).}
+%	\label{fig:JanSM}
+%\end{figure} 
 
-For the pendulum, the iLQR algorithm converged to a cost of 156.70 after 52 iterations. The resulting trajectory is one initial swing to the left, followed by a complete upswing to the right. This trajectory seems reasonable, since reaching the goal with just a single swing is impossible due to the restrictions on the control input. Figure (\ref{fig:JanP1}) displays the trajectory that the algorithm found and the simulated trajectory with an added PID controller.
-\begin{figure}[htp] 
-	\centering
-	\includegraphics[width=0.5\textwidth]{P1.png}
-	\caption{Comparison of iLQR result and closed-loop simulation. Angular position $x_1$ of the pendulum (top) and control input $u$ (bottom).}
-	\label{fig:JanP1}
-\end{figure} 
+For the pendulum, the iLQR algorithm converged after 52 iterations. The resulting trajectory is one initial swing to the left, followed by a complete upswing to the right. Figure (\ref{fig:JanP1}) displays the stand-alone iLQR trajectory and one with an added PID controller.
+%\begin{figure}[htp] 
+%	\centering
+%	\includegraphics[width=0.5\textwidth]{P1.png}
+%	\caption{Comparison of iLQR result and closed-loop simulation. Angular position $x_1$ of the pendulum (top) and control input $u$ (bottom).}
+%	\label{fig:JanP1}
+%\end{figure} 
 
-Both trajectories are almost identical, and there is only a small deviation in the control input at the end of the upswing (compare figure (\ref{fig:JanP1}) bottom at 3 seconds). However, this slight change is crucial to keep the pendulum in the upright position. Without the added PID controller, the system remains instable as shown in figure (\ref{fig:JanP2}), since iLQR is not a closed-loop controller.
-\begin{figure}[htp] 
-	\centering
-	\includegraphics[width=0.5\textwidth]{P2.png}
-	\caption{Comparison of iLQR result and open-loop simulation. Angular position $x_1$ of the pendulum.}
-	\label{fig:JanP2}
-\end{figure}\\
+Both trajectories are almost identical, and there is only a small deviation in the control input at the end of the upswing (compare figure (\ref{fig:JanP1}) bottom at 3 seconds). However, this slight change is crucial to keep the pendulum in the upright position. Without the added PID controller, the system remains instable as shown in figure (\ref{fig:JanP2}), since iLQR is not a closed-loop controller.\\
+%\begin{figure}[htp] 
+%	\centering
+%	\includegraphics[width=0.5\textwidth]{P2.png}
+%	\caption{Comparison of iLQR result and open-loop simulation. Angular position $x_1$ of the pendulum.}
+%	\label{fig:JanP2}
+%\end{figure}\\
 
-The MPC controller managed to stabilize the pendulum of the cart-pole in the upright position after 135 time steps or 2.7 seconds. Due to the input constraints, the car had to move left and right a few times to allow the pendulum to swing back and forth until it reached the upright position. The successful swing-up is presented in figure (\ref{fig:JanCP}). 
- \begin{figure}[htp] 
- 	\centering
- 	\includegraphics[width=0.5\textwidth]{CP.png}
- 	\caption{The swing-up of the cart-pole system. Angular position $\theta=x_3$ of the pendulum and horizontal displacement $x=x_1$ of the car (top) and control input $u$ (bottom).}
- 	\label{fig:JanCP}
- \end{figure}
+The MPC controller managed to stabilize the pendulum of the cart-pole in the upright position for all initial angles. The successful swing-up for an initial position of 10 is presented in figure (\ref{fig:JanCP}). 
 
-Since MPC is a closed-loop control strategy, the system remained in the upright position after reaching it initially.
+
+%\begin{figure}[htp] 
+%	\centering
+%	\includegraphics[width=0.5\textwidth]{CP.png}
+%	\caption{The swing-up of the cart-pole system. Angular position $\theta=x_3$ of the pendulum and horizontal displacement $x=x_1$ of the car (top) and control input $u$ (bottom).}
+%	\label{fig:JanCP}
+%\end{figure}
 
 \section{COMPARISON AND DISCUSSION}
 +TBD+
@@ -398,6 +399,8 @@ Since MPC is a closed-loop control strategy, the system remained in the upright 
 \bibitem{PILCO_paper} Deisenroth, Marc, and Carl E. Rasmussen. "PILCO: A model-based and data-efficient approach to policy search." Proceedings of the 28th International Conference on machine learning (ICML-11). 2011.
 \bibitem{GP_deisenroth} Deisenroth, Marc Peter, Dieter Fox, and Carl Edward Rasmussen. "Gaussian processes for data-efficient learning in robotics and control." IEEE transactions on pattern analysis and machine intelligence 37.2 (2015): 408-423.
 \bibitem{PILCO_web} Deisenroth, Marc Peter, Dieter Fox, and Carl Edward Rasmussen. "PILCO website", 2013. [Online]. Available: http://mlg.eng.cam.ac.uk/pilco/. [Accessed: 27- Jan- 2019]
+\bibitem{Opti_iLQR} Tassa, Mansard, and Todorov. "Control-limited differential dynamic programming". IEEE International Conference on Robotics and Automation (ICRA). 2014.
+\bibitem{Opti_MPC} Gruene, and Pannek. "Nonlinear Model Predictive Control". Springer Verlag. 2017.
 
 %\bibitem{c1} G. O. Young, ÒSynthetic structure of industrial plastics (Book style with paper title and editor),Ó 	in Plastics, 2nd ed. vol. 3, J. Peters, Ed.  New York: McGraw-Hill, 1964, pp. 15Ð64.
 %\bibitem{c2} W.-K. Chen, Linear Networks and Systems (Book style).	Belmont, CA: Wadsworth, 1993, pp. 123Ð135.
