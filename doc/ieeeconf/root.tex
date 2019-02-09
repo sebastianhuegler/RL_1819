@@ -32,7 +32,7 @@
 \usepackage{textcomp}
 \usepackage{subcaption}
 \title{\LARGE \bf
-Comparison of Model-Based and Model-Free Reinforcement Learning and Optimal Control
+On Model-Based, Model-Free Reinforcement Learning and Optimal Control
 }
 
 
@@ -46,7 +46,7 @@ Comparison of Model-Based and Model-Free Reinforcement Learning and Optimal Cont
 \maketitle
 \thispagestyle{empty}
 \pagestyle{empty}
-
+\setlength{\belowcaptionskip}{-5pt}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{abstract}
@@ -59,8 +59,8 @@ The control of dynamical systems can be achieved by a variety of approaches with
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{INTRODUCTION}
 
-The increase of computational power in recent years has allowed for the successful implementation of learning algorithms to control a wide range of dynamical systems. Nonetheless, classical approaches to control problems also provide 
-useful solutions for this class of systems. Therefore, the aim of this paper is to present and discuss advantages and drawbacks of the algorithms model-based reinforcement learning (RL), model-free RL, and optimal control. These methods are applied to a spring-mass system, a pendulum, and a cart-pole.
+The increase of computational power in recent years has allowed for the successful implementation of learning algorithms to control a wide range of dynamical systems. Nonetheless, classical approaches to control problems also provide useful solutions for this class of systems. In the following model-based RL, model-free RL, and optimal control algorithms are presented, evaluated and discussed.
+% Therefore, the aim of this paper is to present and discuss advantages and drawbacks of the algorithms model-based reinforcement learning (RL), model-free RL, and optimal control. These methods are applied to a spring-mass system, a pendulum, and a cart-pole.
 \section{SYSTEMS}
 This section shows the three models that will be controlled by the different algorithms:
 \subsection{Spring-Mass-Damper}
@@ -79,7 +79,7 @@ The spring-mass system can be described by a system of differential equations
 %		0\\
 %		\frac{1}{m}\end{array} } \right)}_{B}u,
 %\end{equation}
-with the parameters $k=1$\,N/m (spring) and $m=1$\,kg (mass).
+with the parameters $k=1$\,N/m (spring), $c=0$\, Ns/m (friction) and $m=1$\,kg (mass).
 \subsection{Pendulum}
 The dynamics of the pendulum are described in (\ref{eqn:JanPsys}).
 \begin{equation}\label{eqn:JanPsys}
@@ -101,26 +101,32 @@ The cart-pole dynamics are as follows:
 \end{equation}
 with the parameters $m=0.2$\,kg (mass of pendulum),  $M=1$\,kg (mass of cart), $l=0.5$\,m (length of the pole), $g=9.82$\,m/s$^2$ (gravity), $c=0.2$\,sN/m (friction), and where s$_3$ and c$_3$ stand for sin$(x_3)$ and cos$(x_3)$, respectively.
 
-\subsection{Simulations}
-For the comparison of the following algorithms the simulation horizon for all models is 2.5 s, the maximum executable force for the spring-mass and cart pole is 10 N, and the maximum torque for the pendulum is 10 Nm. The initial state of spring-mass (pendulum) is 0 m (0\textdegree) and 0 $\frac{m}{s}$ (0$\frac{rad}{s}$). The cart pole starts at the initial angles 10\textdegree, 90\textdegree, or 180\textdegree, and zero position of the cart. 
-
-The goals are $\underline{x}=(1.5\quad 0)^T$ for the spring-mass and upright positions for the pendulum and cart pole.
-%(For comparison the control energy is obtained by cumulative squared control input and the cost of the trajectory is the cumulative square of state variables.)
+%\subsection{Simulations}
+%For the comparison of the following algorithms 
+%% the simulation horizon for all models is 2.5 s, 
+%the maximum executable force for the spring-mass and cart pole is 10 N, and the maximum torque for the pendulum is 10 Nm. The initial state of spring-mass (pendulum) is 0 m (0\textdegree) and 0 $\frac{m}{s}$ (0$\frac{rad}{s}$). The cart pole starts at the initial angles 10\textdegree, 90\textdegree, or 180\textdegree, and zero position of the cart. 
+%The goals are $\underline{x}=(1.5\quad 0)^T$ for the spring-mass and stable upright positions for the pendulum and cart pole.
+%%(For comparison the control energy is obtained by cumulative squared control input and the cost of the trajectory is the cumulative square of state variables.)
 
 \section{MODEL-BASED RL}
-In model based reinforcement learning a model of the system to be controlled is learned using measurement data. Secondly a policy is optimized using the learned model in order to control the real world system afterwards.
+In model based RL a model of the system to be controlled is learned using measurement data and a control policy is optimized using this model.
+
+% Secondly a policy is optimized using the learned model in order to control the real world system afterwards.
 
 %In a model based reinforcement approach a model is trained at first using data sampled of a real world system. The data is generated by applying a policy on the system. %At first a random and afterwards optimized policies are used. 
 %Having trained the artificial model, closed loop simulations using this model are done in order to optimize the policy moving the system to its target state.%, which is necessary to move the model to a predefined target state.
 %%+Maybe a few sentences about the general idea/concept of model-based RL+
 \subsection{Algorithm}
 In this work the PILCO %(Probabilistic Inference for Learning COntrol)
-approach for model based reinforcement learning presented in \cite{PILCO_paper} is investigated.% and a rough overview over the algorithm is given.
-\newline In PILCO a probabilistic dynamic model for long term policy planning is trained. The unknown system dynamics are assumed with 
+approach %for model based reinforcement learning presented in
+from \cite{PILCO_paper} is investigated. % and a rough overview over the algorithm is given. 
+In PILCO a probabilistic dynamic model for long term policy planning is trained. The unknown system dynamics are assumed with 
 \begin{equation}\label{PILCO_sysEq}
 x_t = f\left(x_{t-1},u_{t-1}\right)
 \end{equation}
-where $x\in \mathbb{R}^D$ are the real valued system states, $u \in \mathbb{R}^U$ are the control inputs and $f$ is the unkown transition dynamics. The aim of PILCO is to find a policy $\pi$ for the unkown system, i.e. the optimal parameters $\theta$ of a controller, to minimize a cumulative cost $J^\pi\left(\theta\right)$. 
+where $x\in \mathbb{R}^D$ are the
+% real valued 
+system states, $u \in \mathbb{R}^U$ are the control inputs. The aim of PILCO is to find a policy $\pi$ for the unkown system, i.e. the optimal parameters $\theta$ of a controller.% to minimize a cumulative cost $J^\pi\left(\theta\right)$. 
 
 \begin{figure*}[!thp] 
 	\centering
@@ -135,10 +141,11 @@ where $x\in \mathbb{R}^D$ are the real valued system states, $u \in \mathbb{R}^U
 	\begin{subfigure}{0.325\textwidth}
 	\includegraphics[width=\textwidth]{cp_quad.png}
 	\caption{Cart pole, initial angle: 10\textdegree, angle (orange), position (blue), policy (yellow)}\label{fig:PILCO_cp}
-	\end{subfigure}\caption{Figures (a)-(b) show trajectories used for training of GP (red), additional rollouts not used for GP training (yellow), predicted system trajectory with confidence interval of 95\% (blue) and target states (black).}\label{fig:PILCO}
+	\end{subfigure}\caption{Figures (a)-(b) show GP training trajectories (red), additional rollouts (yellow), predicted system trajectories (95 \% confidence, blue) and target states (black).}\label{fig:PILCO}
 \end{figure*} 
 \paragraph{Learning Model Dynamics}
-The learning of the model dynamics described in equation (\ref{PILCO_sysEq}) is done using a gaussian process (GP), where $\left(x_{t-1},u_{t-1}\right) \in \mathbb{R}^{D+F}$ serve as inputs and $\Delta_t = x_{t} - x_{t-1} + \epsilon \in \mathbb{R}^D$ with $\epsilon \sim \mathcal{N}\left(0,\Sigma_\epsilon\right)$ serve as the GP's outputs. For the GP the squared exponential kernel and a prior mean $m\equiv 0$ is chosen. The parameters (length scales, signal/ noise variance) are trained using evidence maximization. Finally the one step predictions based on the GP are:
+The learning of the model dynamics described in equation (\ref{PILCO_sysEq}) is done using a gaussian process (GP), where $\left(x_{t-1},u_{t-1}\right) \in \mathbb{R}^{D+F}$ serve as inputs and $\Delta_t = x_{t} - x_{t-1} + \epsilon \in \mathbb{R}^D$ with $\epsilon \sim \mathcal{N}\left(0,\Sigma_\epsilon\right)$ serve as outputs. For the GP the squared exponential kernel (SQE) and a prior mean $m\equiv 0$ is chosen. The parameters of the SQE %(length scales, signal/ noise variance) 
+are trained using evidence maximization. Finally the one step predictions based on the GP are:
 \begin{align}
 p(x_t\mid x_{t-1}, u_{t-1}) = \mathcal{N} \left(x_t \mid \mu_t, \mathbf{\Sigma}_t \right),\label{PILCO_GPp}\\
 \mu_t = x_{t-1} + \mathbb{E}_f \left[ \Delta_t \right],\, \mathbf{\Sigma}_t = \text{var}_f \left[ \Delta_t \right]\label{PILCO_GPmu_sigma}
@@ -153,9 +160,10 @@ p\left(\Delta_t\right) = \int p\left(f(\tilde{x}_{t-1})\mid\tilde{x}_{t-1}\right
 Often there is no analytically feasible solution for equation (\ref{PILCO_eq_pDelta}). Therefore the Gaussian of $p\left(\Delta_t\right)$ is approximated using moment matching or linearization \cite{GP_deisenroth}. Wtih the Gaussian of $p\left(\Delta_t\right)$ an approximate Gaussian is obtained for $p\left(x_t\right)$ by
 \begin{align}
 &\mu_t = \mu_{t-1}+\mu_\Delta, \\
-&\mathbf{\Sigma}_t = \mathbf{\Sigma}_{t-1} +\text{cov}\left[x_{t-1},\Delta_{t}\right]+\text{cov}\left[\Delta_t,x_{t-1}\right],\\
-&\text{cov}\left[x_{t-1},\Delta_{t}\right] = \text{cov}\left[x_{t-1},u_{t-1}\right]\mathbf{\Sigma}_u^{-1}\text{cov}\left[u_{t-1},\Delta_{t}\right].
+&\mathbf{\Sigma}_t = \mathbf{\Sigma}_{t-1} +\text{cov}\left[x_{t-1},\Delta_{t}\right]+\text{cov}\left[\Delta_t,x_{t-1}\right].
 \end{align}
+%,\\
+%&\text{cov}\left[x_{t-1},\Delta_{t}\right] = \text{cov}\left[x_{t-1},u_{t-1}\right]\mathbf{\Sigma}_u^{-1}\text{cov}\left[u_{t-1},\Delta_{t}\right]
 Finally the the expected cost is calculated according to 
 \begin{align}
 \mathbb{E}\left[c\left(x_t\right)\right] = \int c\left(x_t\right) \mathcal{N}\left(x_t\mid\mu_t,\mathbf{\Sigma}_t\right) \text{d}x_t.
@@ -179,15 +187,15 @@ Using this cost function the resulting partial derivatives over $\mu_t$ and $\Si
 %Implementation is based on the PILCO toolbox which blablabla bla bla
 
 \subsection{Results}
-In this part the PILCO algorithm is applied to the three previous introduced systems. The simulations have been done using the online available PILCO framework for MATLAB \cite{PILCO_web}. For the policy a radial basis function (RBF) controller is used. 
-
-
-
-Figure \ref{fig:PILCO_sdm} shows that the spring damper mass system is controlled on trail \#1 after optimizing the GP with the data of random exploration in the beginning. This is due to the fact the system is a linear one and the complexity is quite low. 
+The PILCO framework from \cite{PILCO_web} is applied to the three introduced systems, %. %The simulations have been done using the online available PILCO framework for MATLAB , 
+using a radial basis function (RBF) controller for the policy. 
+Figure \ref{fig:PILCO_sdm} shows that the spring damper mass system is controlled on trail \#1 after optimizing the GP with the data of random exploration in the beginning. This is due to the fact that the linear system has a low complexity. 
 %The pseudo-control energy used to bring the system to its steady state is 27.1 and the cost of the trajectory is 3.55.
-The pendulum in figure \ref{fig:PILCO_pendulum} is controlled after the trial \#2. At trail \#1 the state space of the system is only explored in the angular region from $-\frac{\pi}{2}$ to $\frac{\pi}{2}$. The result is that the GP is only trained with data out of this region and the uncertainty of the GP model grows when the planned trajectory leaves this region (s. blue errorbars in fig. \ref{fig:PILCO_pendulum}). Afer trail \#2 however, the system is stabilized at $-\pi$ for all following trials.
+The pendulum in figure \ref{fig:PILCO_pendulum} is controlled after trial \#2. At trail \#1 the state space of the system is only explored in the angular region from $-\frac{\pi}{2}$ to $\frac{\pi}{2}$. The result is that the GP is only trained with data out of this region and the uncertainty of the GP model grows when the planned trajectory leaves this region (s. blue errorbars in fig. \ref{fig:PILCO_pendulum}). Afer trail \#2 however, the system is stabilized at $-\pi$ for all following trials.
 % The trajectories for different inital positions (varying from -0.06 rad to 0.06 rad) are stable as well. 
-This shows that PILCO can handle unkown nonlinear systems quite effectively. This becomes even more obvious when considering results of the cart-pole trajectories. It takes 7 trials for the swing up from 10\textdegree, 3 trails from 90\textdegree and 2 trails from 180\textdegree . After the swing up the steady state is controlled stable with slight inaccuarcies. Figure \ref{fig:PILCO_cp} shows the swing up from 10 \textdegree. Remarkable for this  swing up is that  the controller uses gravity to let the pole first swing in the other direction and swing it to its target position afterwards. This is due to  the restriction of the controller to 10 N maximum force. An linear controller would not be able to plan such a trajectory.  %The control energy used for this is XXXX and the cost of the trajectory is YYYY. % It has to be mentioned that accuracy of the steady state highly depends on the GP model's uncertainty, since slight deviations in the policy applied on the model lead to differing system behaviour.
+This shows that PILCO can handle unkown nonlinear systems effectively. This becomes even more obvious when considering results of the cart-pole trajectories. It takes 7 trials for the swing up from 10\textdegree \, inital pole angle, 3 trails from 90\textdegree \, and 2 trails from 180\textdegree . After the swing up the steady state is controlled stable with slight inaccuarcies. Figure \ref{fig:PILCO_cp} shows the swing up from 10\textdegree. Remarkable is capablility to handle the complexity of the trajectory for this swing up with only a few trials.
+%is that  the controller uses gravity to let the pole first swing in the other direction and swing it to its target position afterwards. This is due to  the restriction of the controller to 10 N maximum force. 
+A linear controller would not be able to plan such a trajectory.  %The control energy used for this is XXXX and the cost of the trajectory is YYYY. % It has to be mentioned that accuracy of the steady state highly depends on the GP model's uncertainty, since slight deviations in the policy applied on the model lead to differing system behaviour.
 
 
 %Pendulum:
@@ -240,7 +248,7 @@ This section shows an approach of a model-free policy search using Policy learni
 The PoWER-algorithm is based on applying varying policies to the unknown system and optimizing these policies according to their rewards.
 The policy $\pi_\theta$ applied on the system in this work is based on Dynamic Movement Primitives (DMP)
 \begin{equation}
-\pi_{\theta}=\ddot{y}=\tau^{2}\alpha_y\beta_y(g-y(t)-\tau^{2}\alpha_y \dot{y}(t)+\tau^{2}f(z(t))
+\pi_{\theta}=\ddot{y}=\tau^{2}\alpha_y\beta_y(g-y(t))-\tau^{2}\alpha_y \dot{y}(t)+\tau^{2}f(z(t))
 \end{equation}
 with parameters $\tau,\alpha_y, \beta_y>0$ \cite{DMP_web}.
 The function $f$ is represented by a radial basis function (RBF) network 
@@ -281,7 +289,9 @@ The mentioned steps are repeated until the reward $R(\theta_n)$ is greater than 
 %Applying the policy on the system, the result is the time behaviour of the rollout. 
 
 \subsection{Results}
-In the following the results of the three systems mass-spring-damper, pendulum and cartpole are shown. For each system it takes around 3.000 trials to reach the target positions with a sufficient quality (see figure \ref{fig:PoWER}). At first the three reward curves of the systems show a fast improvement. After about 500 trials the rewards of the mass-spring-damper and the pendulum show a moderated linear improvement; the reward of the cartpole has its significant point at about 1.500 trials. The appearance of the three graphs differ: While the reward of the mass-spring-damper system shows comparatively little scattering and a maximum of about 0.75 (out of 1), the rewards of the two other systems have larger variations and lower maxima. This is due to the fact that leaving a point with higer rewards, entails a higher penalty in these two systems. Because the policy decreases with $z$, it is difficult for the alorithm to hold the target position in the end of the rollout horizon.
+In figure \ref{fig:PoWER} 
+%the following%
+the results of the three systems mass-spring-damper, pendulum and cartpole are shown. For each system it takes around 3.000 trials to reach the target positions with a sufficient quality (see figure \ref{fig:PoWER}). At first the three reward curves of the systems show a fast improvement. After about 500 trials the rewards of the mass-spring-damper and the pendulum show a moderated linear improvement; the reward of the cartpole has its significant point at about 1.500 trials. The appearance of the three graphs differ: While the reward of the mass-spring-damper system shows comparatively little scattering and a maximum of about 0.75 (out of 1), the rewards of the two other systems have larger variations and lower maxima. This is due to the fact that leaving a point with higher rewards, entails a higher penalty in these two systems. Because the policy decreases with $z$, it is difficult for the alorithm to hold the target position in the end of the rollout horizon.
 
 
 \section{OPTIMAL CONTROL}
@@ -391,9 +401,7 @@ The MPC controller managed to stabilize the pendulum of the cart-pole in the upr
 
 \section{COMPARISON AND DISCUSSION}
 As the results show, optimal control is an effective method as it does not need any interactions with the real system and still delivers high accuracy with reasonable computational effort. However, the system model has to be known or derived by linearization, and the parameterization of the weights requires some work.
-
 For unknown or highly non-linear models this method might fail, which is when the presented reinforcment learning approaches appear to be valid options. The advantage of PILCO is that model learning and simulative parameter optimizations require only few system interactions for stable closed loop control. The optimization algorithm is, however, computationally expensive. 
-
 By contrast, the calculation of DMP-policies  is faster, but requires several system interactions to yield an (open loop) policy. Both RL algorithms show slight deviations around the goal position due to their inherent structure (see figures. 1 (c); 2 (b), (c)).
 
 %By comparing the results shown above -> If model is known or linearization is a good approximation of the model , optimal control works very effective regarding system interactions, accuracy, computation and time effort. However, parametrization can be XXX. % compared to PILCO and MF-RL.Parametrisierung etwas aufwendig. 
@@ -403,13 +411,13 @@ By contrast, the calculation of DMP-policies  is faster, but requires several sy
 Summarizing the results, optimal control presents a good starting point for controlling a system when the dynamics are (partially) known. More complex sub-dynamics (e.g. friction) can then be tackled with reinforcement learning. Here, DMP policies appear to be a good choice for repetitive tasks, while PILCO is a strong algorithm for a general control scheme.
 
 
+
 \begin{thebibliography}{99}
 
-\bibitem{PILCO_paper} Deisenroth, Marc, and Carl E. Rasmussen. "PILCO: A model-based and data-efficient approach to policy search." Proceedings of the 28th International Conference on machine learning (ICML-11). 2011.
+\bibitem{PILCO_paper} Deisenroth, Marc Peter. Efficient reinforcement learning using Gaussian processes. Vol. 9. KIT Scientific Publishing, 2010.
 \bibitem{GP_deisenroth} Deisenroth, Marc Peter, Dieter Fox, and Carl Edward Rasmussen. "Gaussian processes for data-efficient learning in robotics and control." IEEE transactions on pattern analysis and machine intelligence 37.2 (2015): 408-423.
 \bibitem{PILCO_web} Deisenroth, Marc Peter, Dieter Fox, and Carl Edward Rasmussen. "PILCO website", 2013. [Online]. Available: http://mlg.eng.cam.ac.uk/pilco/. [Accessed: 27- Jan- 2019]
-\bibitem{DMP_web} Studywolf. "Dynamic Movement Primitives Part 1: The Basics", 2013.
-[Online]. Available: https://studywolf.wordpress.com/2013/11/16/dynamic-movement-primitives-part-1-the-basics/. [Accessed: 28-Jan- 2019]
+\bibitem{DMP_web} Studywolf. "Dynamic Movement Primitives Part 1: The Basics", 2013. [Online]. Available: https://studywolf.wordpress.com/2013/11/16/dynamic-movement-primitives-part-1-the-basics/. [Accessed: 28-Jan- 2019]
 \bibitem{kober2009policy} Jens Kober, Jan Peters. "Policy search for motor primitives in robotics". Advances in neural information processing systems (2009): 849-856.
 \bibitem{Opti_iLQR} Tassa, Mansard, and Todorov. "Control-limited differential dynamic programming". IEEE International Conference on Robotics and Automation (ICRA). 2014.
 \bibitem{Opti_MPC} Gruene, and Pannek. "Nonlinear Model Predictive Control". Springer Verlag. 2017.
