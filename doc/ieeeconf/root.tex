@@ -220,17 +220,17 @@ This shows that PILCO can handle unkown nonlinear systems quite effectively. Thi
 \begin{figure*}[!thp] 
 	\centering
 	\begin{subfigure}{0.325\textwidth}
-	\includegraphics[width=\textwidth]{julia_sdm_quad_with_2000trials.png}
+	\includegraphics[width=\textwidth]{julia_sdm_quad.png}
 	\caption{Mass-Spring-Damper \newline}\label{fig:PoWER_sdm}
 	\end{subfigure}
 	\begin{subfigure}{0.325\textwidth}
-	\includegraphics[width=\textwidth]{julia_pend_quad_with_2000trials.png}
+	\includegraphics[width=\textwidth]{julia_pend_quad.png}
 	\caption{Pendulum \newline}\label{fig:PoWER_pendulum}
 	\end{subfigure}
 	\begin{subfigure}{0.325\textwidth}
-	\includegraphics[width=\textwidth]{julia_cp10_quad_with_2000trials.png}
+	\includegraphics[width=\textwidth]{julia_cp10_quad.png}
 	\caption{Cartpole, initial angle: 10\textdegree}\label{fig:PoWER_cp}
-	\end{subfigure}\caption{Figures (a)-(c) show the system output as well as the policy over the time at different iteration steps (300 - 5000 trails).}\label{fig:PoWER}
+	\end{subfigure}\caption{Figures (a)-(c) show the system output over time as well as the reward at the increasing iteration steps.}\label{fig:PoWER}
 \end{figure*} 
 This section shows an approach of a model-free policy search using Policy learning by Weighting Exploration with Returns (PoWER).
 \subsection{Algorithm}
@@ -239,7 +239,7 @@ The policy $\pi_\theta$ applied on the system in this work is based on Dynamic M
 \begin{equation}
 \pi_{\theta}=\ddot{y}=\tau^{2}\alpha_y\beta_y(g-y(t)-\tau^{2}\alpha_y \dot{y}(t)+\tau^{2}f(z(t))
 \end{equation}
-with parameters $\tau,\alpha_y, \beta_y>0$.
+with parameters $\tau,\alpha_y, \beta_y>0$ \cite{DMP_web}.
 The function $f$ is represented by a radial basis function (RBF) network 
 \begin{equation}
 f(z(t))=\frac{\sum_{i=1}^N \phi_i \omega_i}{\sum_{i=1}^N \phi_i}z 
@@ -248,8 +248,8 @@ where $\omega_i$ corresponds to the weights of the RBFs $\phi_i$. Usually five t
 \begin{equation}
 \dot{z}=-\tau\,\alpha_z \,z 
 \end{equation}
-with $\alpha_z>0$.
-To optimize the policy $\pi_\theta$, the policy parameter vector $\theta$ (containing weights $\omega_i$ of RBF $\phi_i$) are explored in parameter space with adding a gaussian noise $\varepsilon \sim N(0,\sigma_{\varepsilon})$ to the parameters in iteration $n$:
+with $\alpha_z>0$ \cite{DMP_web}.
+To optimize the policy $\pi_\theta$, the policy parameter vector $\theta$ (containing weights $\omega_i$ of RBF $\phi_i$) are explored in parameter space with adding a gaussian noise $\varepsilon \sim N(0,\sigma_{\varepsilon})$ to the parameters in iteration $n$ \cite{kober2009policy}
 \begin{equation}
 \theta_{temp}=\theta_n+\varepsilon
 \end{equation}
@@ -405,6 +405,9 @@ Summarizing the results, optimal control presents a good starting point for cont
 \bibitem{PILCO_paper} Deisenroth, Marc, and Carl E. Rasmussen. "PILCO: A model-based and data-efficient approach to policy search." Proceedings of the 28th International Conference on machine learning (ICML-11). 2011.
 \bibitem{GP_deisenroth} Deisenroth, Marc Peter, Dieter Fox, and Carl Edward Rasmussen. "Gaussian processes for data-efficient learning in robotics and control." IEEE transactions on pattern analysis and machine intelligence 37.2 (2015): 408-423.
 \bibitem{PILCO_web} Deisenroth, Marc Peter, Dieter Fox, and Carl Edward Rasmussen. "PILCO website", 2013. [Online]. Available: http://mlg.eng.cam.ac.uk/pilco/. [Accessed: 27- Jan- 2019]
+\bibitem{DMP_web} Studywolf. "Dynamic Movement Primitives Part 1: The Basics", 2013.
+[Online]. Available: https://studywolf.wordpress.com/2013/11/16/dynamic-movement-primitives-part-1-the-basics/. [Accessed: 28-Jan- 2019]
+\bibitem{kober2009policy} Jens Kober, Jan Peters. "Policy search for motor primitives in robotics". Advances in neural information processing systems (2009): 849-856.
 \bibitem{Opti_iLQR} Tassa, Mansard, and Todorov. "Control-limited differential dynamic programming". IEEE International Conference on Robotics and Automation (ICRA). 2014.
 \bibitem{Opti_MPC} Gruene, and Pannek. "Nonlinear Model Predictive Control". Springer Verlag. 2017.
 
