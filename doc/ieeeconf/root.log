@@ -1,11 +1,11 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/W32TeX) (preloaded format=pdflatex 2017.8.8)  5 FEB 2019 19:13
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.7.26)  8 FEB 2019 19:14
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
-**./root.tex
+**root.tex
 (./root.tex
-LaTeX2e <2017-04-15>
-Babel <3.12> and hyphenation patterns for 84 language(s) loaded.
+LaTeX2e <2015/01/01>
+Babel <3.9l> and hyphenation patterns for 79 languages loaded.
 (./ieeeconf.cls
 Document Class: ieeeconf 2016/4/23 revision V1.6b by Pradeep Misra
 \@IEEEtrantmpdimenA=\dimen102
@@ -15,7 +15,7 @@ Document Class: ieeeconf 2016/4/23 revision V1.6b by Pradeep Misra
 \@IEEEtrantmptoksA=\toks14
 LaTeX Font Info:    Try loading font information for OT1+ptm on input line 794.
 
-(c:/Users/janbr/OneDrive/texlive/texmf-dist/tex/latex/psnfss/ot1ptm.fd
+(/usr/local/texlive/2015/texmf-dist/tex/latex/psnfss/ot1ptm.fd
 File: ot1ptm.fd 2001/06/04 font definitions for OT1/ptm.
 )
 \@IEEEnormalsizefontbaselineskip=\skip41
@@ -99,25 +99,35 @@ LaTeX Font Info:    Font shape `OT1/ptm/bx/it' in size <24> not available
 )
 ** ATTENTION: Overriding command lockouts (line 9).
 ** ATTENTION: Overriding IEEE standard margins (line 12).
-(c:/Users/janbr/OneDrive/texlive/texmf-dist/tex/latex/graphics/graphics.sty
-Package: graphics 2017/06/25 v1.2c Standard LaTeX Graphics (DPC,SPQR)
+(/usr/local/texlive/2015/texmf-dist/tex/latex/graphics/graphics.sty
+Package: graphics 2014/10/28 v1.0p Standard LaTeX Graphics (DPC,SPQR)
 
-(c:/Users/janbr/OneDrive/texlive/texmf-dist/tex/latex/graphics/trig.sty
-Package: trig 2016/01/03 v1.10 sin cos tan (DPC)
+(/usr/local/texlive/2015/texmf-dist/tex/latex/graphics/trig.sty
+Package: trig 1999/03/16 v1.09 sin cos tan (DPC)
 )
-(c:/Users/janbr/OneDrive/texlive/texmf-dist/tex/latex/graphics-cfg/graphics.cfg
-File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
+(/usr/local/texlive/2015/texmf-dist/tex/latex/latexconfig/graphics.cfg
+File: graphics.cfg 2010/04/23 v1.9 graphics configuration of TeX Live
 )
-Package graphics Info: Driver file: pdftex.def on input line 99.
- (c:/Users/janbr/OneDrive/texlive/texmf-dist/tex/latex/graphics-def/pdftex.def
-File: pdftex.def 2017/06/24 v1.0g Graphics/color driver for pdftex
-)) (c:/Users/janbr/OneDrive/texlive/texmf-dist/tex/latex/graphics/epsfig.sty
-Package: epsfig 2017/06/25 v1.7b (e)psfig emulation (SPQR)
+Package graphics Info: Driver file: pdftex.def on input line 94.
 
-(c:/Users/janbr/OneDrive/texlive/texmf-dist/tex/latex/graphics/graphicx.sty
-Package: graphicx 2017/06/01 v1.1a Enhanced LaTeX Graphics (DPC,SPQR)
+(/usr/local/texlive/2015/texmf-dist/tex/latex/pdftex-def/pdftex.def
+File: pdftex.def 2011/05/27 v0.06d Graphics/color for pdfTeX
 
-(c:/Users/janbr/OneDrive/texlive/texmf-dist/tex/latex/graphics/keyval.sty
+(/usr/local/texlive/2015/texmf-dist/tex/generic/oberdiek/infwarerr.sty
+Package: infwarerr 2010/04/08 v1.3 Providing info/warning/error messages (HO)
+)
+(/usr/local/texlive/2015/texmf-dist/tex/generic/oberdiek/ltxcmds.sty
+Package: ltxcmds 2011/11/09 v1.22 LaTeX kernel commands for general use (HO)
+)
+\Gread@gobject=\count91
+))
+(/usr/local/texlive/2015/texmf-dist/tex/latex/graphics/epsfig.sty
+Package: epsfig 1999/02/16 v1.7a (e)psfig emulation (SPQR)
+
+(/usr/local/texlive/2015/texmf-dist/tex/latex/graphics/graphicx.sty
+Package: graphicx 2014/10/28 v1.0g Enhanced LaTeX Graphics (DPC,SPQR)
+
+(/usr/local/texlive/2015/texmf-dist/tex/latex/graphics/keyval.sty
 Package: keyval 2014/10/28 v1.15 key=value parser (DPC)
 \KV@toks@=\toks15
 )
@@ -127,50 +137,50 @@ Package: keyval 2014/10/28 v1.15 key=value parser (DPC)
 \epsfxsize=\dimen115
 \epsfysize=\dimen116
 )
-(c:/Users/janbr/OneDrive/texlive/texmf-dist/tex/latex/amsmath/amsmath.sty
-Package: amsmath 2016/11/05 v2.16a AMS math features
+(/usr/local/texlive/2015/texmf-dist/tex/latex/amsmath/amsmath.sty
+Package: amsmath 2013/01/14 v2.14 AMS math features
 \@mathmargin=\skip47
 
 For additional information on amsmath, use the `?' option.
-(c:/Users/janbr/OneDrive/texlive/texmf-dist/tex/latex/amsmath/amstext.sty
-Package: amstext 2000/06/29 v2.01 AMS text
+(/usr/local/texlive/2015/texmf-dist/tex/latex/amsmath/amstext.sty
+Package: amstext 2000/06/29 v2.01
 
-(c:/Users/janbr/OneDrive/texlive/texmf-dist/tex/latex/amsmath/amsgen.sty
-File: amsgen.sty 1999/11/30 v2.0 generic functions
+(/usr/local/texlive/2015/texmf-dist/tex/latex/amsmath/amsgen.sty
+File: amsgen.sty 1999/11/30 v2.0
 \@emptytoks=\toks16
 \ex@=\dimen117
 ))
-(c:/Users/janbr/OneDrive/texlive/texmf-dist/tex/latex/amsmath/amsbsy.sty
-Package: amsbsy 1999/11/29 v1.2d Bold Symbols
+(/usr/local/texlive/2015/texmf-dist/tex/latex/amsmath/amsbsy.sty
+Package: amsbsy 1999/11/29 v1.2d
 \pmbraise@=\dimen118
 )
-(c:/Users/janbr/OneDrive/texlive/texmf-dist/tex/latex/amsmath/amsopn.sty
-Package: amsopn 2016/03/08 v2.02 operator names
+(/usr/local/texlive/2015/texmf-dist/tex/latex/amsmath/amsopn.sty
+Package: amsopn 1999/12/14 v2.01 operator names
 )
-\inf@bad=\count91
-LaTeX Info: Redefining \frac on input line 213.
-\uproot@=\count92
-\leftroot@=\count93
-LaTeX Info: Redefining \overline on input line 375.
-\classnum@=\count94
-\DOTSCASE@=\count95
-LaTeX Info: Redefining \ldots on input line 472.
-LaTeX Info: Redefining \dots on input line 475.
-LaTeX Info: Redefining \cdots on input line 596.
+\inf@bad=\count92
+LaTeX Info: Redefining \frac on input line 210.
+\uproot@=\count93
+\leftroot@=\count94
+LaTeX Info: Redefining \overline on input line 306.
+\classnum@=\count95
+\DOTSCASE@=\count96
+LaTeX Info: Redefining \ldots on input line 378.
+LaTeX Info: Redefining \dots on input line 381.
+LaTeX Info: Redefining \cdots on input line 466.
 \Mathstrutbox@=\box27
 \strutbox@=\box28
 \big@size=\dimen119
-LaTeX Font Info:    Redeclaring font encoding OML on input line 712.
-LaTeX Font Info:    Redeclaring font encoding OMS on input line 713.
-\macc@depth=\count96
-\c@MaxMatrixCols=\count97
+LaTeX Font Info:    Redeclaring font encoding OML on input line 566.
+LaTeX Font Info:    Redeclaring font encoding OMS on input line 567.
+\macc@depth=\count97
+\c@MaxMatrixCols=\count98
 \dotsspace@=\muskip10
-\c@parentequation=\count98
-\dspbrk@lvl=\count99
+\c@parentequation=\count99
+\dspbrk@lvl=\count100
 \tag@help=\toks17
-\row@=\count100
-\column@=\count101
-\maxfields@=\count102
+\row@=\count101
+\column@=\count102
+\maxfields@=\count103
 \andhelp@=\toks18
 \eqnshift@=\dimen120
 \alignsep@=\dimen121
@@ -182,21 +192,21 @@ LaTeX Font Info:    Redeclaring font encoding OMS on input line 713.
 \multlinegap=\skip48
 \multlinetaggap=\skip49
 \mathdisplay@stack=\toks20
-LaTeX Info: Redefining \[ on input line 2817.
-LaTeX Info: Redefining \] on input line 2818.
+LaTeX Info: Redefining \[ on input line 2665.
+LaTeX Info: Redefining \] on input line 2666.
 )
-(c:/Users/janbr/OneDrive/texlive/texmf-dist/tex/latex/amsfonts/amssymb.sty
+(/usr/local/texlive/2015/texmf-dist/tex/latex/amsfonts/amssymb.sty
 Package: amssymb 2013/01/14 v3.01 AMS font symbols
 
-(c:/Users/janbr/OneDrive/texlive/texmf-dist/tex/latex/amsfonts/amsfonts.sty
+(/usr/local/texlive/2015/texmf-dist/tex/latex/amsfonts/amsfonts.sty
 Package: amsfonts 2013/01/14 v3.01 Basic AMSFonts support
 \symAMSa=\mathgroup4
 \symAMSb=\mathgroup5
 LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
 (Font)                  U/euf/m/n --> U/euf/b/n on input line 106.
 ))
-(c:/Users/janbr/OneDrive/texlive/texmf-dist/tex/latex/base/textcomp.sty
-Package: textcomp 2017/04/05 v2.0i Standard LaTeX package
+(/usr/local/texlive/2015/texmf-dist/tex/latex/base/textcomp.sty
+Package: textcomp 2005/09/27 v1.99g Standard LaTeX package
 Package textcomp Info: Sub-encoding information:
 (textcomp)               5 = only ISO-Adobe without \textcurrency
 (textcomp)               4 = 5 + \texteuro
@@ -210,7 +220,7 @@ Package textcomp Info: Sub-encoding information:
 (textcomp)             See the documentation for details.
 Package textcomp Info: Setting ? sub-encoding to TS1/1 on input line 79.
 
-(c:/Users/janbr/OneDrive/texlive/texmf-dist/tex/latex/base/ts1enc.def
+(/usr/local/texlive/2015/texmf-dist/tex/latex/base/ts1enc.def
 File: ts1enc.def 2001/06/05 v3.0e (jk/car/fm) Standard LaTeX file
 )
 LaTeX Info: Redefining \oldstylenums on input line 334.
@@ -277,15 +287,15 @@ Package textcomp Info: Setting pplj sub-encoding to TS1/3 on input line 407.
 Package textcomp Info: Setting ptmx sub-encoding to TS1/4 on input line 408.
 Package textcomp Info: Setting ptmj sub-encoding to TS1/4 on input line 409.
 )
-(c:/Users/janbr/OneDrive/texlive/texmf-dist/tex/latex/caption/subcaption.sty
-Package: subcaption 2016/05/22 v1.1-161 Sub-captions (AR)
+(/usr/local/texlive/2015/texmf-dist/tex/latex/caption/subcaption.sty
+Package: subcaption 2013/02/03 v1.1-62 Sub-captions (AR)
 
-(c:/Users/janbr/OneDrive/texlive/texmf-dist/tex/latex/caption/caption.sty
-Package: caption 2016/02/21 v3.3-144 Customizing captions (AR)
+(/usr/local/texlive/2015/texmf-dist/tex/latex/caption/caption.sty
+Package: caption 2013/05/02 v3.3-89 Customizing captions (AR)
 
-(c:/Users/janbr/OneDrive/texlive/texmf-dist/tex/latex/caption/caption3.sty
-Package: caption3 2016/05/22 v1.7-166 caption3 kernel (AR)
-Package caption3 Info: TeX engine: e-TeX on input line 67.
+(/usr/local/texlive/2015/texmf-dist/tex/latex/caption/caption3.sty
+Package: caption3 2013/05/02 v1.6-88 caption3 kernel (AR)
+Package caption3 Info: TeX engine: e-TeX on input line 57.
 \captionmargin=\dimen126
 \captionmargin@=\dimen127
 \captionwidth=\dimen128
@@ -309,10 +319,10 @@ mpboxa \hbox {\footnotesize #1.~~ }\parbox [t]{\hsize }{\footnotesize \noindent
  \unhbox \@tempboxa #2}\else \ifcenterfigcaptions \hbox to\hsize {\footnotesize
  \hfil \box \@tempboxa \hfil }\else \hbox to\hsize {\footnotesize \box \@tempbo
 xa \hfil }\fi \fi \fi .
-\c@ContinuedFloat=\count103
+\c@ContinuedFloat=\count104
 )
-\c@subfigure=\count104
-\c@subtable=\count105
+\c@subfigure=\count105
+\c@subtable=\count106
 ) (./root.aux
 
 LaTeX Warning: Label `fig:PILCO' multiply defined.
@@ -334,166 +344,153 @@ LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 42.
 LaTeX Font Info:    ... okay on input line 42.
 LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 42.
 LaTeX Font Info:    Try loading font information for TS1+cmr on input line 42.
- (c:/Users/janbr/OneDrive/texlive/texmf-dist/tex/latex/base/ts1cmr.fd
+ (/usr/local/texlive/2015/texmf-dist/tex/latex/base/ts1cmr.fd
 File: ts1cmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    ... okay on input line 42.
 
-(c:/Users/janbr/OneDrive/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
+(/usr/local/texlive/2015/texmf-dist/tex/context/base/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count106
+\scratchcounter=\count107
 \scratchdimen=\dimen133
 \scratchbox=\box29
-\nofMPsegments=\count107
-\nofMParguments=\count108
+\nofMPsegments=\count108
+\nofMParguments=\count109
 \everyMPshowfont=\toks21
-\MPscratchCnt=\count109
+\MPscratchCnt=\count110
 \MPscratchDim=\dimen134
-\MPnumerator=\count110
-\makeMPintoPDFobject=\count111
+\MPnumerator=\count111
+\makeMPintoPDFobject=\count112
 \everyMPtoPDFconversion=\toks22
+) (/usr/local/texlive/2015/texmf-dist/tex/generic/oberdiek/pdftexcmds.sty
+Package: pdftexcmds 2011/11/29 v0.20 Utility functions of pdfTeX for LuaTeX (HO
 )
-(c:/Users/janbr/OneDrive/texlive/texmf-dist/tex/latex/oberdiek/epstopdf-base.st
-y
-Package: epstopdf-base 2016/05/15 v2.6 Base part for package epstopdf
 
-(c:/Users/janbr/OneDrive/texlive/texmf-dist/tex/generic/oberdiek/infwarerr.sty
-Package: infwarerr 2016/05/16 v1.4 Providing info/warning/error messages (HO)
-) (c:/Users/janbr/OneDrive/texlive/texmf-dist/tex/latex/oberdiek/grfext.sty
-Package: grfext 2016/05/16 v1.2 Manage graphics extensions (HO)
-
-(c:/Users/janbr/OneDrive/texlive/texmf-dist/tex/generic/oberdiek/kvdefinekeys.s
-ty
-Package: kvdefinekeys 2016/05/16 v1.4 Define keys (HO)
- (c:/Users/janbr/OneDrive/texlive/texmf-dist/tex/generic/oberdiek/ltxcmds.sty
-Package: ltxcmds 2016/05/16 v1.23 LaTeX kernel commands for general use (HO)
-)))
-(c:/Users/janbr/OneDrive/texlive/texmf-dist/tex/latex/oberdiek/kvoptions.sty
-Package: kvoptions 2016/05/16 v3.12 Key value format for package options (HO)
-
-(c:/Users/janbr/OneDrive/texlive/texmf-dist/tex/generic/oberdiek/kvsetkeys.sty
-Package: kvsetkeys 2016/05/16 v1.17 Key value parser (HO)
-
-(c:/Users/janbr/OneDrive/texlive/texmf-dist/tex/generic/oberdiek/etexcmds.sty
-Package: etexcmds 2016/05/16 v1.6 Avoid name clashes with e-TeX commands (HO)
-
-(c:/Users/janbr/OneDrive/texlive/texmf-dist/tex/generic/oberdiek/ifluatex.sty
-Package: ifluatex 2016/05/16 v1.4 Provides the ifluatex switch (HO)
+(/usr/local/texlive/2015/texmf-dist/tex/generic/oberdiek/ifluatex.sty
+Package: ifluatex 2010/03/01 v1.3 Provides the ifluatex switch (HO)
 Package ifluatex Info: LuaTeX not detected.
 )
-Package etexcmds Info: Could not find \expanded.
-(etexcmds)             That can mean that you are not using pdfTeX 1.50 or
-(etexcmds)             that some package has redefined \expanded.
-(etexcmds)             In the latter case, load this package earlier.
-)))
-(c:/Users/janbr/OneDrive/texlive/texmf-dist/tex/generic/oberdiek/pdftexcmds.sty
-Package: pdftexcmds 2017/03/19 v0.25 Utility functions of pdfTeX for LuaTeX (HO
-)
-(c:/Users/janbr/OneDrive/texlive/texmf-dist/tex/generic/oberdiek/ifpdf.sty
-Package: ifpdf 2017/03/15 v3.2 Provides the ifpdf switch
+(/usr/local/texlive/2015/texmf-dist/tex/generic/oberdiek/ifpdf.sty
+Package: ifpdf 2011/01/30 v2.3 Provides the ifpdf switch (HO)
+Package ifpdf Info: pdfTeX in PDF mode is detected.
 )
 Package pdftexcmds Info: LuaTeX not detected.
 Package pdftexcmds Info: \pdf@primitive is available.
 Package pdftexcmds Info: \pdf@ifprimitive is available.
 Package pdftexcmds Info: \pdfdraftmode found.
 )
-Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
-38.
-Package grfext Info: Graphics extension search list:
-(grfext)             [.pdf,.png,.jpg,.mps,.jpeg,.jbig2,.jb2,.PDF,.PNG,.JPG,.JPE
-G,.JBIG2,.JB2,.eps]
-(grfext)             \AppendGraphicsExtensions on input line 456.
+(/usr/local/texlive/2015/texmf-dist/tex/latex/oberdiek/epstopdf-base.sty
+Package: epstopdf-base 2010/02/09 v2.5 Base part for package epstopdf
 
-(c:/Users/janbr/OneDrive/texlive/texmf-dist/tex/latex/latexconfig/epstopdf-sys.
-cfg
+(/usr/local/texlive/2015/texmf-dist/tex/latex/oberdiek/grfext.sty
+Package: grfext 2010/08/19 v1.1 Manage graphics extensions (HO)
+
+(/usr/local/texlive/2015/texmf-dist/tex/generic/oberdiek/kvdefinekeys.sty
+Package: kvdefinekeys 2011/04/07 v1.3 Define keys (HO)
+))
+(/usr/local/texlive/2015/texmf-dist/tex/latex/oberdiek/kvoptions.sty
+Package: kvoptions 2011/06/30 v3.11 Key value format for package options (HO)
+
+(/usr/local/texlive/2015/texmf-dist/tex/generic/oberdiek/kvsetkeys.sty
+Package: kvsetkeys 2012/04/25 v1.16 Key value parser (HO)
+
+(/usr/local/texlive/2015/texmf-dist/tex/generic/oberdiek/etexcmds.sty
+Package: etexcmds 2011/02/16 v1.5 Avoid name clashes with e-TeX commands (HO)
+Package etexcmds Info: Could not find \expanded.
+(etexcmds)             That can mean that you are not using pdfTeX 1.50 or
+(etexcmds)             that some package has redefined \expanded.
+(etexcmds)             In the latter case, load this package earlier.
+)))
+Package grfext Info: Graphics extension search list:
+(grfext)             [.png,.pdf,.jpg,.mps,.jpeg,.jbig2,.jb2,.PNG,.PDF,.JPG,.JPE
+G,.JBIG2,.JB2,.eps]
+(grfext)             \AppendGraphicsExtensions on input line 452.
+
+(/usr/local/texlive/2015/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: End \AtBeginDocument code.
 LaTeX Font Info:    Try loading font information for U+msa on input line 68.
- (c:/Users/janbr/OneDrive/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
+
+(/usr/local/texlive/2015/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
 LaTeX Font Info:    Try loading font information for U+msb on input line 68.
 
-(c:/Users/janbr/OneDrive/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
+(/usr/local/texlive/2015/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
 LaTeX Font Info:    Try loading font information for TS1+ptm on input line 102.
 
 
-(c:/Users/janbr/OneDrive/texlive/texmf-dist/tex/latex/psnfss/ts1ptm.fd
+(/usr/local/texlive/2015/texmf-dist/tex/latex/psnfss/ts1ptm.fd
 File: ts1ptm.fd 2001/06/04 font definitions for TS1/ptm.
 )
 <sdm_quad.png, id=1, 502.0356pt x 351.2322pt>
 File: sdm_quad.png Graphic file (type png)
-<use sdm_quad.png>
-Package pdftex.def Info: sdm_quad.png  used on input line 125. on input line 12
-5.
-Package pdftex.def Info: Requested size: 164.4127pt x 115.02267pt on input line
- 125.
+ <use sdm_quad.png>
+Package pdftex.def Info: sdm_quad.png used on input line 125.
+(pdftex.def)             Requested size: 164.4127pt x 115.02267pt.
+
 <pend_quad.png, id=2, 502.0356pt x 351.2322pt>
 File: pend_quad.png Graphic file (type png)
-<use pend_quad.png>
-Package pdftex.def Info: pend_quad.png  used on input line 129. on input line 1
-29.
-Package pdftex.def Info: Requested size: 164.4127pt x 115.02267pt on input line
- 129.
+ <use pend_quad.png>
+Package pdftex.def Info: pend_quad.png used on input line 129.
+(pdftex.def)             Requested size: 164.4127pt x 115.02267pt.
+
 <cp_quad.png, id=3, 502.0356pt x 351.2322pt>
 File: cp_quad.png Graphic file (type png)
-<use cp_quad.png>
-Package pdftex.def Info: cp_quad.png  used on input line 133. on input line 133
-.
-Package pdftex.def Info: Requested size: 164.4127pt x 115.02267pt on input line
- 133.
-
-[1{c:/Users/janbr/OneDrive/texlive/texmf-var/fonts/map/pdftex/updmap/pdftex.map
-}
+ <use cp_quad.png>
+Package pdftex.def Info: cp_quad.png used on input line 133.
+(pdftex.def)             Requested size: 164.4127pt x 115.02267pt.
+ [1{/usr/local/texlive/2015/texmf-var/fonts/map/pdftex/updmap/pdftex.map}
 
 
 ]
-<julia_sdm_quad_with_2000trails.png, id=23, 502.0356pt x 451.9284pt>
-File: julia_sdm_quad_with_2000trails.png Graphic file (type png)
-<use julia_sdm_quad_with_2000trails.png>
-Package pdftex.def Info: julia_sdm_quad_with_2000trails.png  used on input line
- 223. on input line 223.
-Package pdftex.def Info: Requested size: 164.4127pt x 147.99901pt on input line
- 223.
-<julia_pend_quad_with_2000trails.png, id=24, 1003.75pt x 903.375pt>
-File: julia_pend_quad_with_2000trails.png Graphic file (type png)
-<use julia_pend_quad_with_2000trails.png>
-Package pdftex.def Info: julia_pend_quad_with_2000trails.png  used on input lin
-e 227. on input line 227.
-Package pdftex.def Info: Requested size: 164.4127pt x 147.96147pt on input line
+<julia_sdm_quad_with_2000trials.png, id=23, 502.0356pt x 451.9284pt>
+File: julia_sdm_quad_with_2000trials.png Graphic file (type png)
+
+<use julia_sdm_quad_with_2000trials.png>
+Package pdftex.def Info: julia_sdm_quad_with_2000trials.png used on input line 
+223.
+(pdftex.def)             Requested size: 164.4127pt x 147.99901pt.
+
+<julia_pend_quad_with_2000trials.png, id=24, 1003.75pt x 903.375pt>
+File: julia_pend_quad_with_2000trials.png Graphic file (type png)
+
+<use julia_pend_quad_with_2000trials.png>
+Package pdftex.def Info: julia_pend_quad_with_2000trials.png used on input line
  227.
-<julia_cp10_quad_with_2000trails.png, id=25, 1003.75pt x 903.375pt>
-File: julia_cp10_quad_with_2000trails.png Graphic file (type png)
-<use julia_cp10_quad_with_2000trails.png>
-Package pdftex.def Info: julia_cp10_quad_with_2000trails.png  used on input lin
-e 231. on input line 231.
-Package pdftex.def Info: Requested size: 164.4127pt x 147.96147pt on input line
+(pdftex.def)             Requested size: 164.4127pt x 147.96147pt.
+
+<julia_cp10_quad_with_2000trials.png, id=25, 1003.75pt x 903.375pt>
+File: julia_cp10_quad_with_2000trials.png Graphic file (type png)
+
+<use julia_cp10_quad_with_2000trials.png>
+Package pdftex.def Info: julia_cp10_quad_with_2000trials.png used on input line
  231.
+(pdftex.def)             Requested size: 164.4127pt x 147.96147pt.
  [2 <./sdm_quad.png (PNG copy)> <./pend_quad.png (PNG copy)> <./cp_quad.png (PN
 G copy)>]
 <MS.png, id=29, 284.56313pt x 203.25937pt>
 File: MS.png Graphic file (type png)
-<use MS.png>
-Package pdftex.def Info: MS.png  used on input line 288. on input line 288.
-Package pdftex.def Info: Requested size: 164.4127pt x 117.4439pt on input line 
-288.
+ <use MS.png>
+Package pdftex.def Info: MS.png used on input line 288.
+(pdftex.def)             Requested size: 164.4127pt x 117.4439pt.
+
 <P1.png, id=30, 284.56313pt x 203.25937pt>
 File: P1.png Graphic file (type png)
-<use P1.png>
-Package pdftex.def Info: P1.png  used on input line 292. on input line 292.
-Package pdftex.def Info: Requested size: 164.4127pt x 117.4439pt on input line 
-292.
+ <use P1.png>
+Package pdftex.def Info: P1.png used on input line 292.
+(pdftex.def)             Requested size: 164.4127pt x 117.4439pt.
+
 <CP.png, id=31, 283.81032pt x 195.73125pt>
 File: CP.png Graphic file (type png)
-<use CP.png>
-Package pdftex.def Info: CP.png  used on input line 296. on input line 296.
-Package pdftex.def Info: Requested size: 164.4127pt x 113.39278pt on input line
- 296.
+ <use CP.png>
+Package pdftex.def Info: CP.png used on input line 296.
+(pdftex.def)             Requested size: 164.4127pt x 113.39278pt.
 
 Underfull \hbox (badness 1616) in paragraph at lines 323--325
 \OT1/ptm/m/n/10 the sys-tem into the de-sired goal po-si-tion even un-der
@@ -504,8 +501,8 @@ Underfull \hbox (badness 10000) in paragraph at lines 323--325
 
  []
 
-[3 <./julia_sdm_quad_with_2000trails.png (PNG copy)> <./julia_pend_quad_with_20
-00trails.png (PNG copy)> <./julia_cp10_quad_with_2000trails.png (PNG copy)>]
+[3 <./julia_sdm_quad_with_2000trials.png (PNG copy)> <./julia_pend_quad_with_20
+00trials.png (PNG copy)> <./julia_cp10_quad_with_2000trials.png (PNG copy)>]
 Underfull \hbox (badness 2111) in paragraph at lines 342--344
 []\OT1/ptm/m/n/10 iLQR is an open-loop con-troller. There-fore, in the
  []
@@ -529,12 +526,12 @@ Underfull \hbox (badness 10000) in paragraph at lines 371--378
  []
 
 [4 <./MS.png (PNG copy)> <./P1.png (PNG copy)> <./CP.png (PNG copy)>]
-Underfull \hbox (badness 10000) in paragraph at lines 401--402
+Underfull \hbox (badness 10000) in paragraph at lines 404--405
 []\OT1/ptm/m/n/8 Deisenroth, Marc Pe-ter, Di-eter Fox, and Carl Ed-ward
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 401--402
+Underfull \hbox (badness 10000) in paragraph at lines 404--405
 \OT1/ptm/m/n/8 Ras-mussen. "PILCO web-site", 2013. [On-line]. Avail-able:
  []
 
@@ -560,33 +557,32 @@ LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 4650 strings out of 492990
- 72478 string characters out of 6129825
- 136011 words of memory out of 5000000
- 8130 multiletter control sequences out of 15000+600000
+ 4661 strings out of 493089
+ 71668 string characters out of 6134842
+ 139898 words of memory out of 5000000
+ 8071 multiletter control sequences out of 15000+600000
  43275 words of font info for 92 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 42i,15n,40p,1046b,459s stack positions out of 5000i,500n,10000p,200000b,80000s
-{c:/Users/janbr/OneDrive/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}<c:/U
-sers/janbr/OneDrive/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pf
-b><c:/Users/janbr/OneDrive/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cm
-ex10.pfb><c:/Users/janbr/OneDrive/texlive/texmf-dist/fonts/type1/public/amsfont
-s/cm/cmmi10.pfb><c:/Users/janbr/OneDrive/texlive/texmf-dist/fonts/type1/public/
-amsfonts/cm/cmmi7.pfb><c:/Users/janbr/OneDrive/texlive/texmf-dist/fonts/type1/p
-ublic/amsfonts/cm/cmmi9.pfb><c:/Users/janbr/OneDrive/texlive/texmf-dist/fonts/t
-ype1/public/amsfonts/cm/cmr10.pfb><c:/Users/janbr/OneDrive/texlive/texmf-dist/f
-onts/type1/public/amsfonts/cm/cmr5.pfb><c:/Users/janbr/OneDrive/texlive/texmf-d
-ist/fonts/type1/public/amsfonts/cm/cmr6.pfb><c:/Users/janbr/OneDrive/texlive/te
-xmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb><c:/Users/janbr/OneDrive/texli
-ve/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb><c:/Users/janbr/OneDrive/
-texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><c:/Users/janbr/On
-eDrive/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb><c:/Users/ja
-nbr/OneDrive/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-<c:/Users/janbr/OneDrive/texlive/texmf-dist/fonts/type1/urw/times/utmb8a.pfb><c
-:/Users/janbr/OneDrive/texlive/texmf-dist/fonts/type1/urw/times/utmbi8a.pfb><c:
-/Users/janbr/OneDrive/texlive/texmf-dist/fonts/type1/urw/times/utmr8a.pfb><c:/U
-sers/janbr/OneDrive/texlive/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on root.pdf (5 pages, 673563 bytes).
+ 42i,15n,40p,1044b,457s stack positions out of 5000i,500n,10000p,200000b,80000s
+{/usr/local/texlive/2015/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/local/t
+exlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/te
+xlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/tex
+live/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texl
+ive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/local/texliv
+e/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi9.pfb></usr/local/texlive/
+2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/20
+15/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/local/texlive/2015/
+texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/texlive/2015/tex
+mf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2015/texmf-
+dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/local/texlive/2015/texmf-dis
+t/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2015/texmf-dist
+/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2015/texmf-dist/f
+onts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/texlive/2015/texmf-di
+st/fonts/type1/urw/times/utmb8a.pfb></usr/local/texlive/2015/texmf-dist/fonts/t
+ype1/urw/times/utmbi8a.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/urw/
+times/utmr8a.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/urw/times/utmr
+i8a.pfb>
+Output written on root.pdf (5 pages, 674722 bytes).
 PDF statistics:
  98 PDF objects out of 1000 (max. 8388607)
  64 compressed objects within 1 object stream

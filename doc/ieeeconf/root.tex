@@ -123,11 +123,11 @@ where $x\in \mathbb{R}^D$ are the real valued system states, $u \in \mathbb{R}^U
 	\centering
 	\begin{subfigure}{0.325\textwidth}
 	\includegraphics[width=\textwidth]{sdm_quad.png}
-	\caption{Spring Damper Mass (trail \#1)\newline}\label{fig:PILCO_sdm}
+	\caption{Spring Damper Mass (trial \#1)\newline}\label{fig:PILCO_sdm}
 	\end{subfigure}
 	\begin{subfigure}{0.325\textwidth}
 	\includegraphics[width=\textwidth]{pend_quad.png}
-	\caption{Pendulum (trail \#1 - top, trail \#2 - bottom)\newline}\label{fig:PILCO_pendulum}
+	\caption{Pendulum (trial \#1 - top, trial \#2 - bottom)\newline}\label{fig:PILCO_pendulum}
 	\end{subfigure}
 	\begin{subfigure}{0.325\textwidth}
 	\includegraphics[width=\textwidth]{cp_quad.png}
@@ -215,20 +215,20 @@ This shows that PILCO can handle unkown nonlinear systems quite effectively. Thi
 %Simulations have been done using the PILCO toolbox 
 %In this work a radial basis function (RBF) controller is used.
 %+Results+
-
 \section{MODEL-FREE POLICY SEARCH}
+
 \begin{figure*}[!thp] 
 	\centering
 	\begin{subfigure}{0.325\textwidth}
-	\includegraphics[width=\textwidth]{julia_sdm_quad_with_2000trails.png}
+	\includegraphics[width=\textwidth]{julia_sdm_quad_with_2000trials.png}
 	\caption{Mass-Spring-Damper \newline}\label{fig:PoWER_sdm}
 	\end{subfigure}
 	\begin{subfigure}{0.325\textwidth}
-	\includegraphics[width=\textwidth]{julia_pend_quad_with_2000trails.png}
+	\includegraphics[width=\textwidth]{julia_pend_quad_with_2000trials.png}
 	\caption{Pendulum \newline}\label{fig:PoWER_pendulum}
 	\end{subfigure}
 	\begin{subfigure}{0.325\textwidth}
-	\includegraphics[width=\textwidth]{julia_cp10_quad_with_2000trails.png}
+	\includegraphics[width=\textwidth]{julia_cp10_quad_with_2000trials.png}
 	\caption{Cartpole, initial angle: 10\textdegree}\label{fig:PoWER_cp}
 	\end{subfigure}\caption{Figures (a)-(c) show the system output as well as the policy over the time at different iteration steps (300 - 5000 trails).}\label{fig:PoWER}
 \end{figure*} 
@@ -387,11 +387,14 @@ The MPC controller managed to stabilize the pendulum of the cart-pole in the upr
 %\end{figure}
 
 \section{COMPARISON AND DISCUSSION}
-+TBD+
+By comparing the results shown above -> If model is known or linearization is a good approximation of the model , optimal control works very effective regarding system interactions, accuracy, computation and time effort. However, parametrization can be XXX. % compared to PILCO and MF-RL.Parametrisierung etwas aufwendig. 
+Otherwise reinforcement learning approaches like PILCO or DMP-policies are a valid option. The advantage of PILCO is that model learning and simulative parameter optimizations only require few system interactions for stable closed loop control. However, the algorithm is computationally expensive. Contrarily, the optimization of DMP-policies  is faster, but requires many system interactions to yield an open loop policy. However, the RL algorithms show slight inacurracy due to random exploration and/or system learning (fig. 1c 2a und c).
 
 \section{CONCLUSION}
-+TBD+
-
+To summarize the results 
+1. basic optimal control approaches
+2. learn unknown systems or system behaviour additionally
+3. if repetive tasks DMP are the choice, if general control PILCO
 
 
 \begin{thebibliography}{99}
