@@ -63,19 +63,22 @@ The increase of computational power in recent years has allowed for the successf
 useful solutions for this class of systems. Therefore, the aim of this paper is to present and discuss advantages and drawbacks of the algorithms model-based reinforcement learning (RL), model-free RL, and optimal control. These methods are applied to a spring-mass system, a pendulum, and a cart-pole.
 \section{SYSTEMS}
 This section shows the three models that will be controlled by the different algorithms:
-\subsection{Spring-Mass}
+\subsection{Spring-Mass-Damper}
 The spring-mass system can be described by a system of differential equations
-\begin{equation}\label{eqn:JanSMsys}
-	\dot{x}=
-	\underbrace{
-		\left( {\begin{array}{cc}
-			0 &1\\
-			-\frac{k}{m} &0\end{array} } \right)}_{A}x + 
-	\underbrace{
-		\left( {\begin{array}{cc}
-		0\\
-		\frac{1}{m}\end{array} } \right)}_{B}u,
+\begin{equation}
+\ddot{x}+\frac{D}{m}\dot{x}+\frac{c}{m}x=\frac{F}{m}
 \end{equation}
+%\begin{equation}\label{eqn:JanSMsys}
+%	\dot{x}=
+%	\underbrace{
+%		\left( {\begin{array}{cc}
+%			0 &1\\
+%			-\frac{k}{m} &0\end{array} } \right)}_{A}x + 
+%	\underbrace{
+%		\left( {\begin{array}{cc}
+%		0\\
+%		\frac{1}{m}\end{array} } \right)}_{B}u,
+%\end{equation}
 with the parameters $k=1$\,N/m (spring) and $m=1$\,kg (mass).
 \subsection{Pendulum}
 The dynamics of the pendulum are described in (\ref{eqn:JanPsys}).
