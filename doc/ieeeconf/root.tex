@@ -387,14 +387,17 @@ The MPC controller managed to stabilize the pendulum of the cart-pole in the upr
 %\end{figure}
 
 \section{COMPARISON AND DISCUSSION}
-By comparing the results shown above -> If model is known or linearization is a good approximation of the model , optimal control works very effective regarding system interactions, accuracy, computation and time effort. However, parametrization can be XXX. % compared to PILCO and MF-RL.Parametrisierung etwas aufwendig. 
-Otherwise reinforcement learning approaches like PILCO or DMP-policies are a valid option. The advantage of PILCO is that model learning and simulative parameter optimizations only require few system interactions for stable closed loop control. However, the algorithm is computationally expensive. Contrarily, the optimization of DMP-policies  is faster, but requires many system interactions to yield an open loop policy. However, the RL algorithms show slight inacurracy due to random exploration and/or system learning (fig. 1c 2a und c).
+As the results show, optimal control is an effective method as it does not need any interactions with the real system and still delivers high accuracy with reasonable computational effort. However, the system model has to be known or derived by linearization, and the parameterization of the weights requires some work.
+
+For unknown or highly non-linear models this method might fail, which is when the presented reinforcment learning approaches appear to be valid options. The advantage of PILCO is that model learning and simulative parameter optimizations require only few system interactions for stable closed loop control. The optimization algorithm is, however, computationally expensive. 
+
+By contrast, the calculation of DMP-policies  is faster, but requires several system interactions to yield an (open loop) policy. Both RL algorithms show slight deviations around the goal position due to their inherent structure (see figures. 1 (c); 2 (b), (c)).
+
+%By comparing the results shown above -> If model is known or linearization is a good approximation of the model , optimal control works very effective regarding system interactions, accuracy, computation and time effort. However, parametrization can be XXX. % compared to PILCO and MF-RL.Parametrisierung etwas aufwendig. 
+%Otherwise reinforcement learning approaches like PILCO or DMP-policies are a valid option. The advantage of PILCO is that model learning and simulative parameter optimizations only require few system interactions for stable closed loop control. However, the algorithm is computationally expensive. Contrarily, the optimization of DMP-policies  is faster, but requires many system interactions to yield an open loop policy. However, the RL algorithms show slight inacurracy due to random exploration and/or system learning (fig. 1c 2a und c).
 
 \section{CONCLUSION}
-To summarize the results 
-1. basic optimal control approaches
-2. learn unknown systems or system behaviour additionally
-3. if repetive tasks DMP are the choice, if general control PILCO
+Summarizing the results, optimal control presents a good starting point for controlling a system when the dynamics are (partially) known. More complex sub-dynamics (e.g. friction) can then be tackled with reinforcement learning. Here, DMP policies appear to be a good choice for repetitive tasks, while PILCO is a strong algorithm for a general control scheme.
 
 
 \begin{thebibliography}{99}
