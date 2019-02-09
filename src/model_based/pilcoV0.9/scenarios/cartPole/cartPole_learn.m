@@ -15,7 +15,7 @@
 %% Code
 
 % 1. Initialization
-for runs = 2:2
+for runs = 1:3
 clearvars -except runs; close all;
 settings_cp;                      % load scenario-specific settings
 if(runs ==1)
