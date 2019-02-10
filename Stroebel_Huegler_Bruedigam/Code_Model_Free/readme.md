@@ -1,0 +1,1 @@
+Main Programm is started by executing model free.m
